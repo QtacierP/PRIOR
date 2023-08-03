@@ -1,0 +1,8 @@
+trainer:
+  gpus: [0]
+  strategy: ddp
+  precision: 16
+  fast_dev_run: False
+  max_epochs: ${pretrain_model.max_epochs}
+  auto_lr_find: false
+  sync_batchnorm: false

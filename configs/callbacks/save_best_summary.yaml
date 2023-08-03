@@ -1,0 +1,5 @@
+save_best_summary:
+    _target_: prior.utils.wandb_utils.SaveBestCheckpointPathToWandbSummary
+    prefix:
+
+    

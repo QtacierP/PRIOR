@@ -1,0 +1,8 @@
+wandb:
+    _target_: pytorch_lightning.loggers.wandb.WandbLogger
+    project: "prior"
+    job_type: "vlp-train"
+    group: ""
+    save_dir: "."
+    name: ${experiment_name}_${running_time}
+    reinit: true

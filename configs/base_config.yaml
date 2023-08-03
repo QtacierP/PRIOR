@@ -1,0 +1,17 @@
+user: iccv2023-9929
+project_name: ICCV2023-PRIOR
+seed: 114514
+debug: false
+running_time: ${now:%Y-%m-%d-%H-%M-%S}
+num_workers: 16
+tags: 
+work_dir: ${hydra:runtime.cwd}
+
+hydra:
+  output_subdir: hydra
+  run:
+    dir: ../logs/${experiment_name}
+  job:
+    env_set: 
+      TOKENIZERS_PARALLELISM: "false"
+      

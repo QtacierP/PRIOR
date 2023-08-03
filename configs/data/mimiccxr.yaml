@@ -1,0 +1,6 @@
+_target_: prior.data.pretrain.mimiccxr.MimicCxrDataset
+dataset_path: /data1/pujin/physionet.org/files/mimic-cxr-jpg/jsons/data_ap_pa_cls_with_text_meta_filter4.json # update this line
+image_transform: ???
+text_transform: ???
+num_colors: 1
+rate: 1.0

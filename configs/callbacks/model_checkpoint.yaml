@@ -1,0 +1,9 @@
+model_checkpoint:
+    _target_: pytorch_lightning.callbacks.ModelCheckpoint
+    monitor: ${logger.monitor_metric}
+    save_top_k: 1           # save k best models (determined by above metric)
+    save_last: true         # additionaly always save model from last epoch
+    mode: ${logger.monitor_metric_mode}
+    verbose: true
+    dirpath: 'checkpoints/'
+    filename: 'pretrain-{epoch:04d}'

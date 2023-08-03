@@ -1,0 +1,4 @@
+defaults:
+  - callbacks: 
+    - model_checkpoint
+

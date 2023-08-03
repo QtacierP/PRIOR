@@ -1,0 +1,41 @@
+_target_: prior.models.prior.Prior
+text_encoder: ???
+image_encoder: ???
+gpus: ${trainer.gpus}
+batch_size: 32
+optim: adam
+stage1_epochs: 20
+stage2_epochs: 30
+stage3_epochs: 50
+max_epochs: 100
+stage1_learning_rate: 1e-5
+stage1_learning_rate_start: 1e-6
+stage1_learning_rate_end: 1e-5
+stage1_weight_decay: 1e-6
+stage1_warmup_epochs: 1
+stage2_learning_rate: 1e-5
+stage2_learning_rate_start: 1e-6
+stage2_learning_rate_end: 1e-5
+stage2_weight_decay: 1e-6
+stage2_warmup_epochs: 1
+stage3_learning_rate: 1e-5
+stage3_learning_rate_start: 1e-6
+stage3_learning_rate_end: 1e-5
+stage3_weight_decay: 1e-6
+stage3_warmup_epochs: 1
+temperature: 0.01
+local_temperature: 0.01
+embed_dim: 768
+exclude_bn_bias: False
+num_workers: ${num_workers}
+frozen_text_encoder: false
+ckpt_path: 'checkpoints/'
+image_rec_drop_out_rate: 0.5
+lambda_proto: 10
+spb_k: 512
+num_queries: 16
+temp_decay: fixed
+gahter_pool: avg
+
+
+

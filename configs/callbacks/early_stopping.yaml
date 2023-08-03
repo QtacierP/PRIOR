@@ -1,0 +1,7 @@
+early_stopping:
+    _target_: pytorch_lightning.callbacks.EarlyStopping
+    monitor: ${logger.monitor_metric}
+    patience: 10 # 40           # how many epochs of not improving until training stops
+    mode: ${logger.monitor_metric_mode}
+    min_delta: 0.00001          # minimum change in the monitored metric needed to qualify as an improvement
+    verbose: true

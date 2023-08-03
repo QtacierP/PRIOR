@@ -1,0 +1,6 @@
+
+_target_: prior.encoders.image.resnet.ResNet
+in_channels: ${pretrain_model.train_dataset.num_colors}
+name: ???
+pretrained: true
+pool_method: avg

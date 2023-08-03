@@ -1,0 +1,18 @@
+image_transformation:
+  resize:
+    _target_: torchvision.transforms.Resize
+    size: [224, 224]
+    interpolation: 2
+  nearest_resize:
+    _target_: torchvision.transforms.Resize
+    size: [224, 224]
+    interpolation: 0
+  random_affine:
+    _target_: torchvision.transforms.RandomAffine
+    degrees: 5
+  random_vertical_flip:
+    _target_: torchvision.transforms.RandomVerticalFlip
+    p: 0.5
+  random_horizontal_flip:
+    _target_: torchvision.transforms.RandomHorizontalFlip
+    p: 0.5

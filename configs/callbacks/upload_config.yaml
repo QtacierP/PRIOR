@@ -1,0 +1,4 @@
+upload_config:
+    _target_: prior.utils.wandb_utils.UploadConfigToWandbAsArtifact
+    config_dir: hydra
+

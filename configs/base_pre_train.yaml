@@ -1,0 +1,17 @@
+defaults:
+  - base_config
+  - base_logger
+  - base_callback
+  - base_trainer
+  - image_transformation
+
+task: pre_train
+
+experiment_name: ???
+logger:
+  log_dir: ../logs/${experiment_name}/
+  wandb:
+    group: pre_train
+
+  monitor_metric: 'train_loss'
+  monitor_metric_mode: 'min'

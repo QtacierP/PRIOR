@@ -1,0 +1,60 @@
+# @package _global_
+defaults:
+  - /pretrain_model: prior
+  - /image_transformation
+  - /callbacks:  
+      - model_checkpoint
+      - upload_config
+      - lr_monitor
+  - /logger:
+      - wandb
+  - /image_encoder@pretrain_model.image_encoder: resnet
+  - /text_encoder@pretrain_model.text_encoder: clinical_bert
+  - /data@pretrain_model.train_dataset: mimiccxr
+
+
+pretrain_model:
+    stage1_learning_rate: 1e-5
+    stage1_learning_rate_start: 1e-7
+    stage1_learning_rate_end: 0
+    stage2_learning_rate: 1e-5
+    stage2_learning_rate_start: 1e-7
+    stage2_learning_rate_end: 0
+    stage3_learning_rate: 5e-6
+    stage3_learning_rate_start: 1e-8
+    stage3_learning_rate_end: 0
+    #max_epochs: 100
+    stage1_epochs: 20
+    stage2_epochs: 30
+    stage3_epochs: 100
+    max_epochs: 150
+    optim: adamw
+    stage1_warmup_epochs: 1
+    stage2_warmup_epochs: 1
+    stage3_warmup_epochs: 5
+    image_encoder:
+        name: resnet50
+        pool_method: attention
+    train_dataset:
+      image_transform:
+        - ${image_transformation.resize}
+        - ${image_transformation.random_affine}
+        - ${image_transformation.random_horizontal_flip}
+      rate: 1.0
+      text_transform: []
+      max_length: 256
+    temperature: 0.01
+    local_temperature: 0.01
+    batch_size: 98 
+    temp_decay: fixed
+
+
+num_workers: 16
+trainer:
+  gpus: [0,1,2,3,4,5]
+  sync_batchnorm: true
+  precision: 16
+experiment_name: iccv_prior_on_mimic_cxr_exp_decay_100
+
+
+
