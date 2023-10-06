@@ -61,7 +61,7 @@ python scripts/train.py +experiments/pre_train=train_prior
 
 
 ### Pre-trained weights
-We released our pre-trained model on pretrained/prior_resnet50.pt, you can download image encoder[here](https://github.com/QtacierP/PRIOR/blob/main/pretrained/prior_resnet50.pt). The whole image-text part is released on [Google Drive](http://data1/pujin/released_codes/official/PRIOR/pretrained/total_prior.ckpt).
+We released our pre-trained model on pretrained/prior_resnet50.pt, you can download image encoder [here](https://github.com/QtacierP/PRIOR/blob/main/pretrained/prior_resnet50.pt). The whole image-text part is released on [Google Drive](http://data1/pujin/released_codes/official/PRIOR/pretrained/total_prior.ckpt).
 
 
 ### Downstream tasks
