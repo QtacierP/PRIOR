@@ -1,0 +1,14 @@
+_target_: prior.downstream.zero_classification_model.ZeroShotClassificationModel
+text_encoder: ???
+image_encoder: ???
+max_epochs: 1
+optim: adamw
+gpus: ${trainer.gpus}
+gahter_pool: 'avg'
+test_dataset:
+pre_trained_path: ${pre_train_ckpt_dir}
+
+
+
+
+

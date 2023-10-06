@@ -1,0 +1,38 @@
+# @package _global_
+defaults:
+  - base_zero_shot_classification
+  - /zero_shot_classification_model: zero_shot_classification_model
+  - /image_transformation
+  - /callbacks:  
+      - early_stopping
+      - model_checkpoint
+      - upload_config
+      - lr_monitor
+  - /logger:
+      - wandb
+  - /data@zero_shot_classification_model.test_dataset: chexpert_zero_shot
+  - /image_encoder@zero_shot_classification_model.image_encoder: resnet
+  - /text_encoder@zero_shot_classification_model.text_encoder: clinical_bert
+
+
+task: zero_shot_classification
+
+
+zero_shot_classification_model:
+    test_dataset:
+      dataset_path: ./datasets/zero_shot_classification/chexpert_5x200.json
+      root_path: /data1/pujin/mm-ssl/datasets/mmssl/CheXpert-v1.0-small
+      transform:
+        - ${image_transformation.resize}
+    batch_size: 32
+    pre_trained_path: # update this line
+    image_encoder:
+      name: resnet50
+      in_channels: 1
+    embed_dim: 768
+    
+  
+trainer: 
+  gpus: [3]
+
+experiment_name: zero_shot_classification_captioner_resnet50_chexpert_5x200

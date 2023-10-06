@@ -1,0 +1,20 @@
+# @package _global_
+
+task: zero_shot_classification
+
+trainer:
+  max_epochs: ${zero_shot_classification_model.max_epochs}
+  deterministic: true
+  benchmark: false
+  
+
+logger:
+  monitor_metric: 'test_acc'
+  monitor_metric_mode: 'max'
+  wandb:
+    group: classification
+  
+
+
+
+

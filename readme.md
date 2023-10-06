@@ -61,11 +61,42 @@ python scripts/train.py +experiments/pre_train=train_prior
 
 
 ### Pre-trained weights
-We released our pre-trained model on pretrained/prior_resnet50.pt, you can download [here](https://github.com/QtacierP/PRIOR/blob/main/pretrained/prior_resnet50.pt)
+We released our pre-trained model on pretrained/prior_resnet50.pt, you can download image encoder[here](https://github.com/QtacierP/PRIOR/blob/main/pretrained/prior_resnet50.pt). The whole image-text part is released on [Google Drive](http://data1/pujin/released_codes/official/PRIOR/pretrained/total_prior.ckpt).
 
 
 ### Downstream tasks
-This part is under code review and will be released soon (In August 2023).
+#### Supervised finetuning
+This part is similar to [LOVT](https://github.com/philip-mueller/lovt). The classification model is based on [TorchVision](https://github.com/pytorch/vision); the segmentation model is based on [SMP](https://github.com/qubvel/segmentation_models.pytorch), and the detection model is based on [Lightning-flash](https://github.com/Lightning-Universe/lightning-flash). Since this part has not addtional technical contribution, we do not provide the codes currently. We will update this part in the future.
+
+#### Zero-shot classification
+Before running the codes, make sure you have downloaded the [CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/) dataset in `<root_path>` and downloaded the whole image-text pre-trianed weights of PRIOR from [Google Drive](http://data1/pujin/released_codes/official/PRIOR/pretrained/total_prior.ckpt) to `<pretrained_path>`. 
+
+Add `<root_path>` and `<dataset_path>` to `configs/data/chexpert_zero_shot.yaml`
+
+```yaml
+_target_: prior.data.zero_shot_classification.chexpert_zls.CheXPertZeroClsDataset
+dataset_path: ??? # update this line
+transform: ???
+num_colors: 1
+root_path: ??? # update this line
+rate: 1.0
+```
+Add `<pretrained_path>` to `configs/experiments/zero_shot_classification/test_prior.yaml`
+
+```yaml
+zero_shot_classification_model:
+    ......
+    pre_trained_path: # update this line
+    ......
+``````
+
+Then run
+
+```bash
+cd codes/
+python scripts/downstream.py +experiments/zero_shot_classification=test_prior
+```
+
 
 ### Acknowledgement
 Some of the code is borrowed from [LOVT](https://github.com/philip-mueller/lovt), [GLoRIA](https://github.com/marshuang80/gloria). Thanks for their great work.

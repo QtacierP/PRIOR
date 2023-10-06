@@ -1,0 +1,6 @@
+_target_: prior.data.zero_shot_classification.chexpert_zls.CheXPertZeroClsDataset
+dataset_path: ??? # update this line
+transform: ???
+num_colors: 1
+root_path: ??? # update this line
+rate: 1.0

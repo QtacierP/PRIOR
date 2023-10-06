@@ -1,0 +1,24 @@
+defaults:
+  - base_config
+  - base_logger
+  - base_callback
+  - base_trainer
+  - image_transformation
+
+
+task: finetune
+experiment_name: ???
+pre_train_experiment_name: ???
+pre_trained_select_mode: last 
+pre_train_ckpt_dir: ../../logs/${pre_train_experiment_name}/checkpoints/${pre_trained_select_mode}.ckpt
+logger:
+  log_dir: ../logs/${experiment_name}/
+  wandb:
+    mode: online
+    group: finetune
+
+  tensorboard:
+    mode: False
+    tags: ''
+  monitor_metric: 'train_loss'
+  monitor_metric_mode: 'min'
