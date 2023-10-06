@@ -61,7 +61,7 @@ python scripts/train.py +experiments/pre_train=train_prior
 
 
 ### Pre-trained weights
-We released our pre-trained model on pretrained/prior_resnet50.pt, you can download image encoder [here](https://github.com/QtacierP/PRIOR/blob/main/pretrained/prior_resnet50.pt). The whole image-text part is released on [Google Drive](http://data1/pujin/released_codes/official/PRIOR/pretrained/total_prior.ckpt).
+We released our pre-trained model on pretrained/prior_resnet50.pt, you can download image encoder [here](https://github.com/QtacierP/PRIOR/blob/main/pretrained/prior_resnet50.pt). The whole image-text part is released on [Google Drive](https://drive.google.com/file/d/1n6i775ztUSFBYhAlAIL6Ftvq5ZiXQsnN/view?usp=drive_link).
 
 
 ### Downstream tasks
@@ -69,7 +69,7 @@ We released our pre-trained model on pretrained/prior_resnet50.pt, you can downl
 This part is similar to [LOVT](https://github.com/philip-mueller/lovt). The classification model is based on [TorchVision](https://github.com/pytorch/vision); the segmentation model is based on [SMP](https://github.com/qubvel/segmentation_models.pytorch), and the detection model is based on [Lightning-flash](https://github.com/Lightning-Universe/lightning-flash). Since this part has not addtional technical contribution, we do not provide the codes currently. We will update this part in the future.
 
 #### Zero-shot classification
-Before running the codes, make sure you have downloaded the [CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/) dataset in `<root_path>` and downloaded the whole image-text pre-trianed weights of PRIOR from [Google Drive](http://data1/pujin/released_codes/official/PRIOR/pretrained/total_prior.ckpt) to `<pretrained_path>`. 
+Before running the codes, make sure you have downloaded the [CheXpert](https://stanfordmlgroup.github.io/competitions/chexpert/) dataset in `<root_path>` and downloaded the whole image-text pre-trianed weights of PRIOR from [Google Drive](https://drive.google.com/file/d/1n6i775ztUSFBYhAlAIL6Ftvq5ZiXQsnN/view?usp=drive_link) to `<pretrained_path>`. 
 
 Add `<root_path>` and `<dataset_path>` to `configs/data/chexpert_zero_shot.yaml`
 
