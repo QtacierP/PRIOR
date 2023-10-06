@@ -86,8 +86,8 @@ def init_downstream_model(config, index=0):
         log.info(f"Instantiating detection_model <{config.detection_model._target_}>")
         model = hydra.utils.instantiate(config.detection_model)
     elif config.task == 'zero_shot_classification':
-        log.info(f"Instantiating classification_model <{config.classification_model._target_}>")
-        model = hydra.utils.instantiate(config.classification_model)
+        log.info(f"Instantiating zero shot classification_model <{config.zero_shot_classification_model._target_}>")
+        model = hydra.utils.instantiate(config.zero_shot_classification_model)
     return model
 
 

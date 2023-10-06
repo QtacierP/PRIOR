@@ -13,5 +13,3 @@ class PretrainModel(pl.LightningModule):
 
     def configure_loss(self):
         pass
-
-

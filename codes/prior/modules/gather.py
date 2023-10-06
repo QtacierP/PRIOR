@@ -53,8 +53,11 @@ class SentenceGather(nn.Module):
         log.info('LocalGather: {}'.format(pool))
     
 
-    def forward(self, x, batch):
-        roi_mask = batch['text_meta']['sentence_index']
+    def forward(self, x, batch=None):
+        if batch is not None:
+            roi_mask = batch['text_meta']['sentence_index']
+        else:
+            roi_mask = torch.ones((x.shape[0], x.shape[1]), dtype=torch.long).to(x.device)
         roi_words = []
         for b in range(x.shape[0]):
             roi_mask_per_text = roi_mask[b]
