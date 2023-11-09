@@ -161,6 +161,7 @@ class MimicCxrDatasetBuilder():
         '''
         root_image_path: the path of image folder
         root_text_path: the path of text folder
+        meta_csv_path: the path of meta csv file
         save_path: the path of save folder
         min_sentences: the minimum number of sentences
         mode: the mode of image, 'dicom' or 'jpg'
