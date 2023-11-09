@@ -33,7 +33,7 @@ pip install -r requirements.txt
 
 ```bash
 cd codes/
-python prior/data/pretrain/mimiccxr.py build --root_image_path <image_dataset_path> --root_report_path <report_dataset_path> --save_path <dataset_json_path>
+python prior/data/pretrain/mimiccxr.py build --root_image_path <image_dataset_path> --root_report_path <report_dataset_path> --save_path <dataset_json_path> --meta_csv_path <meta_csv_path>
 ```
 
 4. Add `<dataset_json_path>` to `configs/data/mimiccxr.yaml`
