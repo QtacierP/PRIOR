@@ -20,12 +20,12 @@ task: zero_shot_classification
 
 zero_shot_classification_model:
     test_dataset:
-      dataset_path: /data1/pujin/released_codes/official/PRIOR/datasets/zero_shot_classification/chexpert_5x200.json
+      dataset_path: # update this line
       root_path: /data1/pujin/mm-ssl/datasets/mmssl/CheXpert-v1.0-small
       transform:
         - ${image_transformation.resize}
     batch_size: 32
-    pre_trained_path: /data1/pujin/released_codes/official/PRIOR/pretrained/total_prior.ckpt # update this line
+    pre_trained_path: # update this line
     image_encoder:
       name: resnet50
       in_channels: 1

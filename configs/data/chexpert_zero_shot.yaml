@@ -1,6 +1,6 @@
 _target_: prior.data.zero_shot_classification.chexpert_zls.CheXPertZeroClsDataset
-dataset_path: /data1/pujin/released_codes/official/PRIOR/datasets/zero_shot_classification/chexpert_5x200.json # update this line
+dataset_path: # update this line
 transform: ???
 num_colors: 1
-root_path: /data1/pujin/mm-ssl/datasets/mmssl/CheXpert-v1.0-small/ # update this line
+root_path:  # update this line
 rate: 1.0
